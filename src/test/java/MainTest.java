@@ -7,8 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(ResultAnalyzer.class)
 public class MainTest {
@@ -16,12 +15,12 @@ public class MainTest {
     @Test
     @DisplayName("Stack ile palindrom saayılar doğru bulunabiliyor mu ?")
     public void testPalindrome(){
-        assertEquals(Main.checkForPalindrome("I did, did I?"), true);
-        assertEquals(Main.checkForPalindrome("Racecar"), true);
-        assertEquals(Main.checkForPalindrome("hello"), false);
-        assertEquals(Main.checkForPalindrome("Was it a car or a cat I saw ?"), true);
-        assertEquals(Main.checkForPalindrome("Test"), false);
-        assertEquals(Main.checkForPalindrome("Welcome"), false);
+        assertTrue(Main.checkForPalindrome("I did, did I?"));
+        assertTrue(Main.checkForPalindrome("Racecar"));
+        assertFalse(Main.checkForPalindrome("hello"));
+        assertTrue(Main.checkForPalindrome("Was it a car or a cat I saw ?"));
+        assertFalse(Main.checkForPalindrome("Test"));
+        assertFalse(Main.checkForPalindrome("Welcome"));
     }
 
     @Test
@@ -36,8 +35,8 @@ public class MainTest {
     @DisplayName("WorkintechList doğru tipe sahip mi ?")
     public void testWorkintechListType(){
         WorkintechList list = new WorkintechList();
-        assertEquals(list instanceof ArrayList, true);
-        assertEquals(list instanceof List, true);
+        assertInstanceOf(ArrayList.class, list);
+        assertInstanceOf(List.class, list);
     }
     
     @Test
